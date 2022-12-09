@@ -8,8 +8,8 @@ const getContactById = (id) => {
   return Contacts.findOne({ _id: id });
 };
 
-const createContact = ({ name, email, phone, favorite }) => {
-  return Contacts.create({ name, email, phone, favorite });
+const createContact = ({ name, email, phone, favorite, owner }) => {
+  return Contacts.create({ name, email, phone, favorite, owner });
 };
 
 const updateContact = (id, fields) => {
