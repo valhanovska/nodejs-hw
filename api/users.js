@@ -8,11 +8,14 @@ const {
   logout,
   current,
   auth,
+  updateAvatar,
 } = require("../controller/users");
+const upload = require("../middleware/uploadImages");
 
 router.post("/register", register);
 router.post("/login", login);
 router.get("/logout", auth, logout);
 router.get("/current", auth, current);
+router.patch("/avatars", auth, upload.single("avatars"), updateAvatar);
 
 module.exports = router;

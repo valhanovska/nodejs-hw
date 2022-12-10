@@ -18,6 +18,7 @@ app.use(express.json());
 
 app.use("/api/contacts", contactsApi);
 app.use("/api/users", usersApi);
+app.use("/avatars", express.static("public/avatars"));
 
 app.use((_, res, __) => {
   res.status(404).json({
