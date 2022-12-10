@@ -22,13 +22,24 @@ const userSchema = new Schema({
     enum: ["starter", "pro", "business"],
     default: "starter",
   },
+  token: {
+    type: String,
+    default: null,
+  },
   avatar: {
     type: String,
     default: function () {
       return gravatar.url(this.email, { s: "250" }, true);
     },
   },
-  token: String,
+  verify: {
+    type: Boolean,
+    default: false,
+  },
+  verificationToken: {
+    type: String,
+    required: [true, "Verify token is required"],
+  },
 });
 
 // userSchema.methods.setPassword = function (password) {
